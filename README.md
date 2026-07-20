@@ -8,8 +8,7 @@ A custom Kali NetHunter kernel for the LG K20 Plus, built on LineageOS 14.1 [LV5
 
 ---
 
-## What's New (July 2026)
-
+## What's New (July 2026) 
 This update adds USB Bluetooth dongle support for use with the Nethunter Bluetooth Arsenal.
 
 - Enabled `CONFIG_BT_ATH3K`, `CONFIG_BT_HCIUART`, `CONFIG_BT_HCIUART_H4`
@@ -21,7 +20,8 @@ Everything else in this README — WiFi injection, HID attacks, I/O scheduler, e
 
 ---
 
-## What's In The Box
+## What's In The Box   This Kernel is for Android 7.1 arm64 only (works partly in 8.x)
+
 
 | Category | Support |
 | --- | --- |
