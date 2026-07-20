@@ -18,11 +18,9 @@ A custom Kali NetHunter kernel for the LG K20 Plus, built on LineageOS 14.1 [LV5
 This update adds USB Bluetooth dongle support for use with the Nethunter Bluetooth Arsenal.
 
 - Enabled `CONFIG_BT_ATH3K`, `CONFIG_BT_HCIUART`, `CONFIG_BT_HCIUART_H4`
-- Fixed a linker error (`get_rome_version`/`rome_download`/`btusb_pm_sem` undefined references) caused by `CONFIG_BT_ATH3K` being off while `btusb.c` still referenced its symbols
-- Rebuilt clean on a modern host toolchain (GCC 13.3.0) — required a `-fcommon` host-tools fix and a `scripts/gcc-wrapper.py` allowlist update, since this tree predates GCC 10's default behavior change
+- Fixed a linker error (`get_rome_version`/`rome_download`/`btusb_pm_sem` undefined references) caused by `CONFIG_BT_ATH3K` issue.
 - Tested end-to-end on hardware: CSR USB BT dongle enumerates, `btusb` binds, `hci0` comes up clean (`UP RUNNING`, no errors)
-
-Everything else in this README — WiFi injection, HID attacks, I/O scheduler, etc. — is the **original 2019 base kernel**, untouched.
+- Everything else in this README — WiFi injection, HID attacks, I/O scheduler, etc. — from the **original 2019 base kernel**, untouched.
 
 ---
 <h2 align="center">What's In The Box</h2>
