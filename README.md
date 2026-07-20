@@ -4,6 +4,12 @@
 
 A custom Kali NetHunter kernel for the LG K20 Plus, built on LineageOS 14.1 [LV517] sources, tuned for wireless pentesting and the full NetHunter toolset.
 
+![Device](https://img.shields.io/badge/device-LG%20K20%20Plus%20(LV517)-blue)
+![Android](https://img.shields.io/badge/android-7.1-green)
+![Arch](https://img.shields.io/badge/arch-arm64-lightgrey)
+![Base](https://img.shields.io/badge/base-LineageOS%2014.1-orange)
+![Updated](https://img.shields.io/badge/updated-July%202026-brightgreen)
+
 **July 2026 update: Bluetooth USB dongle support added** — see [What's New](#whats-new-july-2026) below.
 
 ---
