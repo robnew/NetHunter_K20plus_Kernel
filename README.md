@@ -17,8 +17,6 @@ This update adds USB Bluetooth dongle support for use with the Nethunter Bluetoo
 - Rebuilt clean on a modern host toolchain (GCC 13.3.0) — required a `-fcommon` host-tools fix and a `scripts/gcc-wrapper.py` allowlist update, since this tree predates GCC 10's default behavior change
 - Tested end-to-end on hardware: CSR USB BT dongle enumerates, `btusb` binds, `hci0` comes up clean (`UP RUNNING`, no errors)
 
-Full technical breakdown in [Bluetooth Support](#bluetooth-support) and the [v2.0-BT release notes](../../releases).
-
 Everything else in this README — WiFi injection, HID attacks, I/O scheduler, etc. — is the **original 2019 base kernel**, untouched.
 
 ---
