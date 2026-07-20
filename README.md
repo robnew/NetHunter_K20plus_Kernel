@@ -19,8 +19,8 @@ This update adds USB Bluetooth dongle support for use with the Nethunter Bluetoo
 Everything else in this README — WiFi injection, HID attacks, I/O scheduler, etc. — is the **original 2019 base kernel**, untouched.
 
 ---
-
-## What's In The Box   This Kernel is for Android 7.1 arm64 only (works partly in 8.x)
+<h2 align="center">What's In The Box</h2>
+<h5 align="center">This kernel is for Android 7.1 arm64 only (works partly in 8.x)</h5>
 
 
 | Category | Support |
