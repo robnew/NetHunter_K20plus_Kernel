@@ -4,13 +4,13 @@
 
 A custom Kali NetHunter kernel for the LG K20 Plus, built on LineageOS 14.1 [LV517] sources, tuned for wireless pentesting and the full NetHunter toolset.
 
-The core config has been stable since 2019. **July 2026 update: Bluetooth USB dongle support added** — see [What's New](#whats-new-july-2026) below.
+**July 2026 update: Bluetooth USB dongle support added** — see [What's New](#whats-new-july-2026) below.
 
 ---
 
 ## What's New (July 2026)
 
-The base config below is original, unchanged since 2019. This update adds **USB Bluetooth dongle support**, which wasn't there before:
+This update adds USB Bluetooth dongle support for use with the Nethunter Bluetooth Arsenal.
 
 - Enabled `CONFIG_BT_ATH3K`, `CONFIG_BT_HCIUART`, `CONFIG_BT_HCIUART_H4`
 - Fixed a linker error (`get_rome_version`/`rome_download`/`btusb_pm_sem` undefined references) caused by `CONFIG_BT_ATH3K` being off while `btusb.c` still referenced its symbols
@@ -42,7 +42,7 @@ Everything else in this README — WiFi injection, HID attacks, I/O scheduler, e
 
 ## Bluetooth Support
 
-**Added July 2026** — the original 2019 build had no USB Bluetooth support. This update closes that gap:
+**Added July 2026** — Changes to base kernel
 
 - `CONFIG_BT_ATH3K`, `CONFIG_BT_HCIUART`, `CONFIG_BT_HCIUART_H4` (VHCI was already along for the ride)
 - Confirmed working end-to-end with a CSR-chipset USB BT dongle — clean `hci0 UP RUNNING`, real TX/RX, no errors
@@ -64,42 +64,10 @@ Standard BR/EDR scan/pair tooling should just work. BLE and passive-sniffing cap
 1. Grab the latest flashable zip from [Releases](../../releases)
 2. Boot into TWRP
 3. Flash it
-4. Reboot and go do something you shouldn't
+4. Reboot.
 
-> Requires an unlocked bootloader and TWRP already on your K20 Plus (LV517). If you don't have that sorted yet, this repo assumes you do.
-
----
-
-## Building From Source
-
-If you want to build it yourself instead of trusting a stranger's zip file (respectable):
-
-```bash
-export ARCH=arm64
-export CROSS_COMPILE=/path/to/android-ndk-r11c/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-
-
-make nethunter_lv517_defconfig
-make -j$(nproc) HOSTCFLAGS="-fcommon"
-```
-
-**Heads up if you're building on a modern host:** this tree is a 2019-era Android kernel fork, and host toolchains have not stood still since then. Expect a couple of GCC-version fights:
-
-- `HOSTCFLAGS="-fcommon"` — required on GCC 10+ for the host tools (`scripts/dtc` will fail to link without it; GCC flipped its default and old code didn't get the memo)
-- `scripts/gcc-wrapper.py` treats an allowlist of warnings as fatal errors. If GCC 13 finds a new one it doesn't recognize (it will), you'll need to add `filename.c:line` to the `allowed_warnings` set in that script.
-
-Output image lands at `arch/arm64/boot/Image.gz-dtb`. Package it with your AnyKernel/boot-patcher scaffold of choice before flashing.
-
----
-
-## Credits
-
-- Base: LineageOS 14.1 LV517 kernel sources
-- Integration: Kali NetHunter project
-- Original build: 2019
-- Bluetooth update: July 2026
-
----
+> Requires an unlocked bootloader and TWRP already on your K20 Plus (LV517). This repo assumes you do.
 
 ## Disclaimer
-
 For educational and authorized security testing purposes only. This is pentesting gear for a phone you own, testing networks you're allowed to touch. Flashing custom kernels carries real risk to your device — that's on you, not this README.
+00
